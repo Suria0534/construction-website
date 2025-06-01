@@ -1,0 +1,213 @@
+/* Global Styles */
+/* body {
+    background-color: #a51010 !important;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+} */
+/* Reset box sizing */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+/* Make sure html and body take full height */
+/* Ensure full height and flex layout for body */
+html, body {
+  height: 100%; /* puro screen er height */
+  margin: 0;
+  padding: 0;
+  display: flex; /* flexbox container */
+  flex-direction: column; /* column direction */
+  min-height: 100vh; 
+  background-color: #DAF0F6 !important;/* viewport height */
+  color:#36357F!important;
+}
+
+body {
+  flex: 1 0 auto; /* body grow korbe */
+  display: flex;
+  flex-direction: column;
+  /* color: #242063 !important; */
+}
+
+.page-wrapper {
+  flex: 1 0 auto; /* content jayga barabe */
+}
+.page-wrapper .container {
+  margin-bottom: 0;
+}
+
+
+footer {
+  flex-shrink: 0; /* footer size change hobena */
+}
+h2 {
+    color: #242063 !important;
+    text-align: center;
+    font-family: 'Georgia', serif;
+    font-weight: bold;
+}
+
+/* ============================
+   Card List (Home Page)
+=============================== */
+.card {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    transition: box-shadow 0.3s ease;
+    border: none;
+    border-radius: 0.5rem;
+    overflow: hidden;
+    background-color: #ffffff;
+}
+
+.card:hover {
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Card Image Wrapper */
+.card-img-wrapper {
+    width: 100%;
+    height: 350px;
+    overflow: hidden;
+    background-color: #f0f0f0;
+    position: relative;
+    pointer-events: auto;
+}
+
+/* Image inside the card */
+.card-img-top {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease, filter 0.4s ease;
+    cursor: pointer;
+}
+
+.card-img-top:hover {
+    transform: scale(1.05);
+    filter: brightness(0.9);
+}
+
+
+/* Card Body */
+.card-body {
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 1rem;
+}
+
+.card-title {
+    font-weight: bold;
+    color: #242063;
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+}
+
+.card-text {
+    color: #333;
+    margin-bottom: 1rem;
+    font-size: 0.95rem;
+    line-height: 1.4;
+}
+
+.btn-primary {
+    align-self: flex-start;
+    background-color: #242063;
+    border: none;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: #1d2a78;
+    transform: translateY(-3px);
+}
+
+/* ============================
+   Project Detail Page Styles
+=============================== */
+
+/* Main project image */
+.main-project-image {
+    width: 100%;
+    max-height: 1550px;
+    object-fit: cover;
+    border-radius: 10px;
+    transition: transform 0.4s ease, filter 0.4s ease;
+}
+
+/* Gallery Image Grid */
+.image-wrapper {
+    width: 100%;
+    height: 220px;
+    overflow: hidden;
+    border-radius: 10px;
+    background-color: #f0f0f0;
+    position: relative;
+}
+
+.project-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+    cursor: pointer;
+}
+
+.project-image:hover {
+    transform: scale(1.05);
+}
+
+/* Lightbox styles */
+.lightbox {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.lightbox-content {
+    margin: auto;
+    display: block;
+    max-width: 90%;
+    max-height: 90%;
+}
+
+.lightbox-close {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    color: white;
+    font-size: 40px;
+    cursor: pointer;
+}
+
+/* ============================
+   Responsive Tweaks
+=============================== */
+@media (max-width: 768px) {
+    .card-img-wrapper {
+        height: 200px;
+    }
+
+    .image-wrapper {
+        height: 180px;
+    }
+}
+
+@media (max-width: 576px) {
+    .card-img-wrapper {
+        height: 180px;
+    }
+
+    .image-wrapper {
+        height: 160px;
+    }
+
+    .main-project-image {
+        max-height: 300px;
+    }
+}

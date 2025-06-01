@@ -1,0 +1,65 @@
+{% extends 'main/base.html' %}
+
+{% block title %}{{ project.name }} | Project{% endblock %}
+
+{% block content %}
+<div class="container my-5">
+    <h2 class="mb-4 text-center fw-bold">{{ project.name }}</h2>
+    <p class="text-center text-muted mb-5">{{ project.description }}</p>
+
+    <!-- Main Image -->
+    <div class="main-project-image-wrapper text-center mb-5 mx-auto shadow">
+        <img src="{{ project.main_image.url }}" class="main-project-image" alt="{{ project.name }}">
+    </div>
+
+    <!-- Additional Images -->
+    <h4 class="text-center mb-4">More Images</h4>
+    <div class="row">
+        {% for img in project.images.all %}
+        <div class="col-md-3 col-sm-6 mb-4">
+            <div class="image-wrapper shadow-sm">
+                <img src="{{ img.image.url }}" 
+                     class="project-image" 
+                     alt="Additional Image" 
+                     onclick="openLightbox('{{ img.image.url }}')">
+            </div>
+        </div>
+        {% empty %}
+        <p class="text-center text-muted">No additional images.</p>
+        {% endfor %}
+    </div>
+
+    <!-- Back Button -->
+    <div class="text-center mt-4">
+        <a href="{% url 'home' %}" class="btn btn-outline-secondary">Back to Home</a>
+    </div>
+</div>
+
+<!-- Lightbox Modal -->
+<div id="lightbox" class="lightbox">
+    <span class="lightbox-close" onclick="closeLightbox()">&times;</span>
+    <img class="lightbox-content" id="lightbox-img">
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+    function openLightbox(src) {
+        const lightbox = document.getElementById("lightbox");
+        const img = document.getElementById("lightbox-img");
+        img.src = src;
+        lightbox.style.display = "block";
+    }
+
+    function closeLightbox() {
+        document.getElementById("lightbox").style.display = "none";
+    }
+
+    window.onclick = function (event) {
+        const lightbox = document.getElementById("lightbox");
+        if (event.target === lightbox) {
+            lightbox.style.display = "none";
+        }
+    }
+</script>
+{% endblock %}

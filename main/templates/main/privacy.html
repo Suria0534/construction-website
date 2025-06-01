@@ -1,0 +1,48 @@
+{% extends 'main/base.html' %}
+
+{% block title %}Privacy Policy{% endblock %}
+
+{% block content %}
+<section class="container py-5">
+    <div class="text-center mb-5">
+        <h1 class="display-5 fw-bold text-primary">Privacy & Safety</h1>
+        <p class="text-muted lead">Your trust matters. Here's how we protect your information.</p>
+    </div>
+
+    <div class="bg-light p-4 rounded shadow-sm">
+        <h4 class="text-dark mb-3">Information We Collect</h4>
+        <p class="text-secondary">
+            When you contact us through this site, we may collect your name, email address, and phone number.
+            We only collect what's necessary to provide our services and never share or sell your data.
+        </p>
+    </div>
+
+    <div class="bg-white p-4 rounded shadow-sm mt-4">
+        <h4 class="text-dark mb-3">How We Use Your Data</h4>
+        <p class="text-secondary">
+            We use the information you provide to respond to inquiries, communicate about projects, and improve user experience.
+            We do not use your information for advertising or unauthorized activities.
+        </p>
+    </div>
+
+    <div class="bg-light p-4 rounded shadow-sm mt-4">
+        <h4 class="text-dark mb-3">Data Security</h4>
+        <p class="text-secondary">
+            Our website is protected using industry-standard technologies.
+            We do our best to ensure that your information stays secure and private.
+        </p>
+    </div>
+
+    <div class="bg-white p-4 rounded shadow-sm mt-4">
+        <h4 class="text-dark mb-3">Your Consent</h4>
+        <p class="text-secondary">
+            By using our website, you consent to the collection and use of your information as outlined in this policy.
+            If we make changes, we will update this page accordingly.
+        </p>
+    </div>
+
+    <div class="text-center mt-5">
+        <a href="{% url 'home' %}" class="btn btn-outline-primary px-4">Back to Home</a>
+    </div>
+</section>
+{% endblock %}

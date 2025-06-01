@@ -1,0 +1,14 @@
+/* privacy.css */
+
+h4 {
+    font-family: 'Georgia', serif;
+    font-weight: bold;
+}
+
+.bg-light, .bg-white {
+    transition: all 0.3s ease-in-out;
+}
+
+.bg-light:hover, .bg-white:hover {
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}

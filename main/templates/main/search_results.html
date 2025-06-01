@@ -1,0 +1,29 @@
+{% extends 'main/base.html' %}
+
+{% block title %}Search Results{% endblock %}
+
+{% block content %}
+    <h2>Search Results for "{{ query }}"</h2>
+    {% if results %}
+        <div style="display: flex; flex-wrap: wrap;">
+            {% for project in results %}
+                <div style="width: 300px; margin: 10px; border: 1px solid #ccc; padding: 10px;">
+                    {% if project.main_image %}
+                        <img src="{{ project.main_image.url }}" alt="{{ project.name }}" style="width:100%; height:auto; margin-bottom: 10px;">
+                    {% else %}
+                        <p><em>No image available</em></p>
+                    {% endif %}
+                    <h3>{{ project.name }}</h3>
+                    <p>{{ project.description|truncatewords:20 }}</p>  <!-- 20 words max -->
+                    
+                    <!-- View Details button/link -->
+                    <a href="{% url 'project_detail' project.id %}" style="display: inline-block; margin-top: 10px; padding: 6px 12px; background-color: #007bff; color: white; text-decoration: none; border-radius: 4px;">
+                        View Details
+                    </a>
+                </div>
+            {% endfor %}
+        </div>
+    {% else %}
+        <p>No results found.</p>
+    {% endif %}
+{% endblock %}

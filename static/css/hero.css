@@ -1,0 +1,147 @@
+/* ======= Hero Section Styles ======= */
+
+.hero-section {
+    position: relative;
+    height: 100vh;
+    overflow: hidden;
+    font-family: 'Alfa Slab One', cursive, Arial, sans-serif;
+    background-color: #000; /* fallback background */
+}
+
+/* Slideshow container fills the hero */
+.slideshow-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+/* Each slide (image) styles */
+.hero-slide {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(0.6);
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+    animation: kenburnsZoom 20s ease-in-out infinite;
+    z-index: 0;
+}
+
+/* Show the active slide */
+.hero-slide.active {
+    opacity: 1;
+    z-index: 1;
+}
+
+/* Ken Burns Zoom In and Out Animation */
+@keyframes kenburnsZoom {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* Caption container positioning */
+.hero-caption {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #fff;
+    text-align: center;
+    z-index: 10;
+    max-width: 90%;
+    padding: 0 15px;
+}
+
+/* Main heading style */
+.hero-caption h1 {
+    font-size: 3rem;
+    font-weight: 900;
+    margin-bottom: 0.5rem;
+}
+
+/* Animated typing text style */
+#animated-text {
+    font-size: 2rem;
+    font-weight: 700;
+    min-height: 3rem;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+/* Blinking cursor next to typed text */
+.cursor {
+    display: inline-block;
+    font-weight: 700;
+    font-size: 2rem;
+    color: #fff;
+    animation: blink 1s steps(2, start) infinite;
+    margin-left: 3px;
+}
+
+/* Blink animation */
+@keyframes blink {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0;
+    }
+}
+
+/* Lead paragraph below animated text */
+.hero-caption p.lead {
+    font-size: 1.2rem;
+    margin-top: 1rem;
+    font-weight: 400;
+    color: #ddd;
+}
+
+/* Explore button style */
+.hero-caption a.btn {
+    margin-top: 1.5rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+    padding: 0.75rem 2rem;
+    border-radius: 30px;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    transition: background-color 0.3s ease;
+}
+
+.hero-caption a.btn:hover {
+    background-color: #f8f9fa;
+    color: #333;
+}
+
+/* Responsive typography */
+@media (max-width: 768px) {
+    .hero-caption h1 {
+        font-size: 2.2rem;
+    }
+    #animated-text, .cursor {
+        font-size: 1.5rem;
+    }
+    .hero-caption p.lead {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-caption h1 {
+        font-size: 1.8rem;
+    }
+    #animated-text, .cursor {
+        font-size: 1.2rem;
+    }
+    .hero-caption p.lead {
+        font-size: 0.9rem;
+    }
+}
